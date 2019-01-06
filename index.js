@@ -11,9 +11,8 @@ const { port } = require('./config.json')
 const app = express()
 const logger = morgan('dev')
 
-const usersRouter = require('./routers/users')
+const userRouter = require('./routers/user')
 const loginRouter = require('./routers/login')
-const authenticationRouter = require('./routers/authentication')
 
 app.use(logger)
 app.use(helmet())
@@ -21,9 +20,8 @@ app.use(compression())
 app.use(bodyParser.json())
 app.use(cookieParser())
 
-app.use('/users', usersRouter)
+app.use('/user', userRouter)
 app.use('/login', loginRouter)
-app.use('/authentication', authenticationRouter)
 
 app.use(function (req, res, next) {
   res.sendStatus(404)

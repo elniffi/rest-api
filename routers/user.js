@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const authenticationMiddleware = require('../middlewares/authentication')
+
 /**
  * Create a new user
  */
@@ -12,16 +14,18 @@ router.post('/', (req, res) => {
 /**
  * Get information about a specific user
  */
-router.get('/:id', (req, res) => {
+router.get('/', [authenticationMiddleware], (req, res) => {
   res.status(200)
-  res.send('hello world tillbaka typ')
+  res.json({
+    username: req.username
+  })
   res.end()
 })
 
 /**
  * Update information regarding a specific user
  */
-router.put('/:id', (req, res) => {
+router.put('/', (req, res) => {
   res.status(200)
   res.end()
 })

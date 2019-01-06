@@ -5,7 +5,7 @@ const {
 } = require('../config.json')
 
 module.exports = {
-  create: (username) => new Promise((resolve, reject) => jwt.sign({
+  create: username => new Promise((resolve, reject) => jwt.sign({
     username
   }, secret, { expiresIn: '24h' }, (error, token) => {
     if (error) {
@@ -14,7 +14,13 @@ module.exports = {
       resolve(token)
     }
   })),
-  verify: (token) => {
-
-  }
+  verify: token => new Promise((resolve, reject) => {
+    jwt.verify(token, secret, function(error, decoded) {
+      if (error) {
+        reject(error)
+      } else {
+        resolve(decoded)
+      }
+    });
+  })
 }

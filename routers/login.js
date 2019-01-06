@@ -46,4 +46,13 @@ router.post('/', [dataValidator(schema)], async (req, res) => {
   res.end()
 })
 
+/**
+ * Invalidate a token, adding it to the blacklist, making any future 
+ * requests using that token fail even if it has not yet expired
+ */
+router.delete('/', (req, res) => {
+  res.status(201)
+  res.end()
+})
+
 module.exports = router

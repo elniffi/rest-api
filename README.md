@@ -51,7 +51,7 @@ Returns nothing.
 
 ### /authentication
 
-#### POST
+#### GET
 
 Authentictaion: required
 

@@ -4,7 +4,9 @@
   "description": "an api to manage authentication, users, games etc",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "debug": "node --inspect index.js",
+    "debug:break": "node --inspect-brk index.js"
   },
   "repository": {
     "type": "git",

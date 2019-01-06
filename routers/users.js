@@ -14,6 +14,7 @@ router.post('/', (req, res) => {
  */
 router.get('/:id', (req, res) => {
   res.status(200)
+  res.send('hello world tillbaka typ')
   res.end()
 })
 

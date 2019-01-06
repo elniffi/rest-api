@@ -33,15 +33,22 @@ const {
  */
 router.post('/', [dataValidator(schema)], async (req, res) => {
   const { username, password } = req.body
+
+  console.log(`recieved username: ${username} and password: ${password}`)
   
   const valid = await verifyCredentials(username, password)
 
   if (valid) {
     const token = await create(username)
+
+    console.log(`created a token, it looks like this ${token}`)
+
     res.json({ token })
   } else {
     res.sendStatus(401)
   }
+
+  console.log('And we are done')
 
   res.end()
 })

@@ -31,7 +31,7 @@ No payload.
 
 Returns nothing.
 
-### /users/:id
+### /user
 
 #### GET
 
@@ -48,16 +48,6 @@ Authentictaion: required
 Payload should be a json string that contains the properties of the user that should be updated.
 
 Returns nothing.
-
-### /authentication
-
-#### GET
-
-Authentictaion: required
-
-No payload.
-
-Returns a json string that contains information about who the user is if it is valid.
 
 #### DELETE
 

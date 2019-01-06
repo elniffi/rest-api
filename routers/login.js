@@ -22,7 +22,7 @@ const schema = {
 
 const {
   verifyCredentials
-} = require('../models/user')
+} = require('../models/users')
 
 const {
   create 

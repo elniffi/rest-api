@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const authenticationMiddleware = require('../middlewares/authentication')
+const usersModel = require('../models/users')
 
 /**
  * Create a new user

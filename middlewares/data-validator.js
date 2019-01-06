@@ -14,6 +14,9 @@ module.exports = (schema) => {
       next()
     } else {
       if (env === 'dev') {
+        console.log(`data validation failed`, validate.errors)
+        console.log('data recieved was', data)
+    
         res.status(400)
         res.json(validate.errors)
       } else {

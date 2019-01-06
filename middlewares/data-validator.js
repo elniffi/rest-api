@@ -1,7 +1,10 @@
 const Ajv = require('ajv')
-const ajv = new Ajv()
-
 const { env } = require('../config.json')
+
+const isDev = env === 'dev'
+const ajv = new Ajv({
+  allErrors: isDev ? true : false
+})
 
 module.exports = (schema) => {
   const validate = ajv.compile(schema);
@@ -13,7 +16,7 @@ module.exports = (schema) => {
     if (valid) {
       next()
     } else {
-      if (env === 'dev') {
+      if (isDev) {
         console.log(`data validation failed`, validate.errors)
         console.log('data recieved was', data)
     

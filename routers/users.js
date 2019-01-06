@@ -28,7 +28,7 @@ router.put('/:id', (req, res) => {
 /**
  * Delete a specific user
  */
-router.delete('/:id', (req, res) => {
+router.delete('/', (req, res) => {
   res.status(200)
   res.end()
 })

@@ -1,11 +1,10 @@
-const database = require('../utils/database')
-const userDatabase = database.get('users')
+const databaseHelper = require('../utils/database')
+const tableDefinition = 'CREATE TABLE users (email	TEXT NOT NULL, hashedPassword	TEXT NOT NULL, PRIMARY KEY(email));'
+const db = database.get('users', tableDefinition)
 
 module.exports = {
   create: async () => {
-    let db = await userDatabase
 
-    console.log(db)
   },
   read: async () => {
 
